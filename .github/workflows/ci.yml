@@ -1,4 +1,4 @@
-name: ci 
+name: 🚀 Deploy website on push
 on:
   push:
     branches:
@@ -8,9 +8,12 @@ permissions:
   contents: write
 jobs:
   deploy:
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v3
+
       - uses: actions/setup-python@v4
         with:
           python-version: 3.x
@@ -21,6 +24,10 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run: pip install mkdocs-material 
-      - run: pip install mkdocs-minify-plugin
-      - run: mkdocs gh-deploy --force
+      
+      - name: 🔨 Build Project
+        run: |
+          pip install mkdocs-material
+          pip install mkdocs-minify-plugin
+          pip install mkdocs-git-revision-date-localized-plugin
+          mkdocs gh-deploy --force

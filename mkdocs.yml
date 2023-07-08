@@ -1,5 +1,5 @@
 # Project information
-site_name: Template
+site_name: Template Mkdocs Material
 #site_url: http://fconhkd.github.io/
 site_author: fconhkd
 site_description: >-
@@ -17,17 +17,20 @@ copyright: © 2023 Company - Todos os direitos reservados
 # Page tree
 nav:
         - Início: index.md
-        - about.md
+        - Menu exemplo:
+                Submenu exemplo: suporte/faq.md
+        - Ajuda: sobre.md
 
                
 # Configuration
 theme:
         name: material
+        custom_dir: overrides
         language: pt-BR
         icon:
                 logo: fontawesome/solid/computer
-        #logo: images/logo-white.png
-        #favicon: images/logo-white.png
+        #logo: assets/images/logo-white.png
+        #favicon: assets/images/favicon.png
         features:
                 - announce.dismiss
                 # - content.action.edit
@@ -37,7 +40,7 @@ theme:
                 # - content.tabs.link
                 - content.tooltips
                 # - header.autohide
-                # - navigation.expand
+                - navigation.expand
                 - navigation.footer
                 - navigation.indexes
                 # - navigation.instant
@@ -94,9 +97,14 @@ extra:
         align: center
         generator: false
 
-# CSS
+# CSS e Javascript
 extra_css:
-    - 'css/extra.css'
+    - 'assets/css/extra.css'
+    - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css
+
+extra_javascript:
+    - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js
+    - assets/javascripts/highlight.js
 
 # Plugins
 plugins:
@@ -104,6 +112,11 @@ plugins:
                 lang: pt
         - minify:
                 minify_html: true
+        - git-revision-date-localized:
+                # enabled: !ENV [CI, false]
+                enable_creation_date: true
+                fallback_to_build_date: false
+                type: timeago
 
 # Extensions
 markdown_extensions:
@@ -133,8 +146,8 @@ markdown_extensions:
         - pymdownx.keys
         - pymdownx.magiclink:
                 repo_url_shorthand: true
-                user: squidfunk
-                repo: mkdocs-material
+                user: fconhkd
+                repo: mkdocs-material-template
         - pymdownx.mark
         - pymdownx.smartsymbols
         - pymdownx.superfences:
