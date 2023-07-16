@@ -6,7 +6,7 @@ site_description: >-
   Um modelo para futuros wikis
 
 # Repository
-repo_name: fconhkd.github.io
+#repo_name: fconhkd.github.io
 repo_url: https://github.com/fconhkd/fconhkd.github.io/
 edit_uri: edit/main/docs
 # edit_uri_template: 'blob/main/docs/{path}'
